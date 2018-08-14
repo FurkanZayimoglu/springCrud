@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <title>Deneme</title>
+
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+    <title>Insert title here</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Cars</h1>
+
+    <p>
+        <a href="/carsEdit" th:href="@{/carsEdit}">Create</a>
+    </p>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Years</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cars :${carsList}">
+
+            <td th:text="${cars.id}"></td>
+            <td th:text="${cars.name}"></td>
+            <td th:text="${cars.model}"></td>
+            <td th:text="${cars.years}"></td>
+            <td>
+                <a  th:href="@{/carsEdit/__${cars.id}__}">Edit</a>
+                <a  th:href="@{/carsDelete/__${cars.id}__}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
